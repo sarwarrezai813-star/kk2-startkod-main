@@ -25,7 +25,12 @@ while (true)
         Console.Write("Namn: ");
         string name = Console.ReadLine();
         Console.Write("Pris: ");
-        int price = int.Parse(Console.ReadLine());
+       bool priceSuccess = int.TryParse(Console.ReadLine(), out int price);
+       if (!priceSuccess)
+        {
+            Console.WriteLine("Ogiltigt pris.");
+            continue;
+        }
         list.Add(new Item(name, price));
     }
     else if (choice == 2)
