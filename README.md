@@ -15,3 +15,10 @@ Lösning: Jag byt till int.TryParse om användaren inte skrev ett nummer då pro
 Problem: Jag körde dotnet run då valde 1. lägg till vara då jag skrev ett heltal fungerade men när jag valde en bokstav då programmet kraschade och visade i program.cs rade 28.
 Orsak: De har använd int.parse som kan inte omvandla en bokstav till ett heltal.
 Lösning: Jag byt till int.TryPase om användaren skriv en bokstav då programmet visar "Ogiltigt pris" samt går tillbaka till menyn.
+
+## Fel 4 - Ogiltigt nummer
+Problem: Jag körde dotnet run då valde 2. Ta bort vara och då skrev en bokstav och programmet kraschade och visade i program.cs rad 39.
+Orsak: De har använd int.Parse som kan inte omvandla en bokstav till ett heltal.
+Lösning: Jag byt till int.TryParse då om användaren skrev en bokstav och programmet visar "Ogiltigt nummer" samt går tillbaka till menyn.
+
+

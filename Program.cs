@@ -36,7 +36,12 @@ while (true)
     else if (choice == 2)
     {
         Console.Write("Nummer: ");
-        int number = int.Parse(Console.ReadLine());
+        bool numberSuccess = int.TryParse(Console.ReadLine(), out int number);
+        if (!numberSuccess)
+        {
+            Console.WriteLine("Ogitligt nummer.");
+            continue;
+        }
         list.RemoveAt(number);
     }
     else if (choice == 3)
