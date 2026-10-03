@@ -50,3 +50,34 @@ I program.cs kontrollerar jag om Add returnerar en false då användaren får en
 Designval:
 Jag valde att returnerar false istället för att kasta ett undantag.
 Jag valde på grund av ingen fel på varan men budget räker inte.
+
+
+## Klassdiagram
+
+```mermaid
+classDiagram
+      class Item {
+        +string Name
+        +int Price
+        +Item(string name, int price)
+        +ToString()
+      }
+
+      class ShoppingList {
+        -List~Item~ item
+        -string path
+        -int budgetLimit
+        +ShoppingList(string path, int budgetLimit)
+        +bool Add(Item item)
+        +RemoveAt(int number)
+        +int Total()
+        +Save()
+        +Load()
+      }
+
+      class Program
+
+      ShoppingList --> Item : innehåller
+      Program --> ShoppingList : använder
+      ```
+
