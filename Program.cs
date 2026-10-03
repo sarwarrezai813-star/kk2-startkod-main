@@ -1,4 +1,4 @@
-ShoppingList list = new ShoppingList("items.txt");
+ShoppingList list = new ShoppingList("items.txt", 200);
 list.Load();
 
 while (true)
@@ -33,7 +33,11 @@ while (true)
         }
         try
         {
-            list.Add(new Item(name, price));
+            bool added =list.Add(new Item(name, price));
+            if (!added)
+            {
+                Console.WriteLine("Varan kunde inte läggas till eftersom budgettaket överskrids.");
+            }
         }
         catch (ArgumentOutOfRangeException ex)
         {

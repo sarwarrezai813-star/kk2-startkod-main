@@ -43,4 +43,10 @@ Orsak: Konstruktorn i Item.cs de har inte kontrollerad om namnet var tom eller o
 Lösning: I konstruktorn i Item.cs om namnet är tom då jag använder en ArgumentException. Om priset är negativ då använder jag ArgumentOutOfRangeException.
 I program.cs jag lade en Try och catch för att om användaren hoppa inte över namn, och inte skriver en negativ prise då får användare ett meddelande samt programmet inte krascher. 
 
-
+## Budgettak
+Problem: ShoppingList behövde ett budgettak om en vara går över budget då ska inte läggas.
+Lösning: Jag började la en budgetLimit i ShoppingList.cs. I Add-metoden kontrollerar jag om Total() + item.Price blir större än budgetLimit. Om en vara överskrids i budgettaket då Add returnerar false och vara ska inte läggas. Om vara går inte över budgettak då Add returnerar true. 
+I program.cs kontrollerar jag om Add returnerar en false då användaren får en tydligt meddelande.
+Designval:
+Jag valde att returnerar false istället för att kasta ett undantag.
+Jag valde på grund av ingen fel på varan men budget räker inte.
