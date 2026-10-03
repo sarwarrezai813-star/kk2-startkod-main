@@ -4,7 +4,8 @@
 ## Fel 1 - Tom rad i filen
 Problem: När jag körde dotnet run då programmet kraschade och visade ShoppingList.cs och rad 90.
 Orsak: Koden försökte använda parts[1], men den var tom rad samt hade inte tillräckligt många delar.
-Lösninng: När jag användade string.IsNullOrWhiteSpece(line) för att kolla om raden är tom och därefter sätta jag continue för att kunna hoppa över den raden.
+Lösninng: När jag användade string.IsNullOrWhiteSpece(line) för att kolla om raden är tom och därefter jag sätt continue för att kunna hoppa över den raden.
+jag har använd Trim() på namnet när filenläsas in för att Trim() tar bort osynliga tecken som \r. Efter ändring visas den sparade varan korrekt efter en omstartoch går även att hitta med sökfunktionen.
 
 ## Fel 2 - Ogiltigt talinmatning
 Problem: När jag löste första problem då dotnet run går till menyn, pris och när jag valde ett heltal fungerade men när jag skrev en bokstav istället för nummer då kraschade programmet samt terminal visade progrma.cs och rad 16, och 28 på pris.
@@ -27,3 +28,8 @@ Problem: Programmet kraschade inte vid totalsumma men totalsumma var fel.
 Listan hade tre priserna 15 kr, 32 kr, 89 kr och det blir 136 kr men programmet visade 121 kr.
 Orsak: ShoppingList.cs på rad 33 for-loopen började med i = 1 och en index börjar på 0 då programmet hoppade över den första varan, 15 kr.
 Lösning: Jag började ändra rad 33 for-loppen från i = 1 till i = 0. Då började for-loppen från första varan och totalsumma blev 136 kr.
+
+## Fel 6 - Tom catch döljer fel
+Problem: Save-metoden hade ett tomt catch och när sparningen misslyckades då användaren fick ingen felmeddelande. 
+Orska: Meddelande "Listan är sparad." var utanför try-blocket.
+Lösning: Först jag flyttade "Listan är sparad." in i try-blocket för att meddelande ska visas när sparad lyckas. Jag lade i catch-blocket en (IOexception) för att visa "kunde inte sparad listan.".

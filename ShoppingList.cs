@@ -75,12 +75,15 @@ class ShoppingList
         try
         {
             File.WriteAllText(path, string.Join("\r\n", lines) + "\r\n");
+             Console.WriteLine("Listan är sparad.");
         }
-        catch
+        catch (IOException)
+
         {
+            Console.WriteLine("Kunde inte spara listan.");
         }
 
-        Console.WriteLine("Listan är sparad.");
+       
     }
 
     // Reads the file back into the list.
@@ -101,7 +104,7 @@ class ShoppingList
                 continue;
             }
             string[] parts = line.Split(';');
-            items.Add(new Item(parts[1], int.Parse(parts[0])));
+            items.Add(new Item(parts[1].Trim(), int.Parse(parts[0])));
         }
     }
 }
