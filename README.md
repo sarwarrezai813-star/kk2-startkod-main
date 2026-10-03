@@ -33,3 +33,14 @@ Lösning: Jag började ändra rad 33 for-loppen från i = 1 till i = 0. Då bör
 Problem: Save-metoden hade ett tomt catch och när sparningen misslyckades då användaren fick ingen felmeddelande. 
 Orska: Meddelande "Listan är sparad." var utanför try-blocket.
 Lösning: Först jag flyttade "Listan är sparad." in i try-blocket för att meddelande ska visas när sparad lyckas. Jag lade i catch-blocket en (IOexception) för att visa "kunde inte sparad listan.".
+
+# Del 2 - Bygga ut programmet
+
+## Item skyddar sig själv
+
+Problem: Item.cs var tom då jag lade en if för att meddela att användaren får inte hoppa över namen och prise.
+Orsak: Konstruktorn i Item.cs de har inte kontrollerad om namnet var tom eller om priset var negativt.
+Lösning: I konstruktorn i Item.cs om namnet är tom då jag använder en ArgumentException. Om priset är negativ då använder jag ArgumentOutOfRangeException.
+I program.cs jag lade en Try och catch för att om användaren hoppa inte över namn, och inte skriver en negativ prise då får användare ett meddelande samt programmet inte krascher. 
+
+

@@ -31,7 +31,19 @@ while (true)
             Console.WriteLine("Ogiltigt pris.");
             continue;
         }
-        list.Add(new Item(name, price));
+        try
+        {
+            list.Add(new Item(name, price));
+        }
+        catch (ArgumentOutOfRangeException ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+        catch (ArgumentException ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    
     }
     else if (choice == 2)
     {
